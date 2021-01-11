@@ -56,15 +56,7 @@ def welcome_msg():
     msg = """
     Welcome to Snake and Ladder Game.
 
-    Rules:
-      1. Initally players  at starting position i.e. 0.
-         Take it in turns to roll the dice.
-         Move forward the number of spaces shown on the dice.
-      2. If you lands at the bottom of a ladder, you can move up to the top of the ladder.
-      3. If you lands on the head of a snake, you must slide down to the bottom of the snake.
-      4. The first player to get to the FINAL position is the winner.
-      5. Hit enter to roll the dice.
-
+  
     """
     print(msg)
 
@@ -125,28 +117,6 @@ def check_win(player_name, position):
         print("Congratulations " + player_name)
         print("\nThank you for playing the game.\n\n")
         sys.exit(1)
-
-
-
-def startgame():
-    welcome_msg()
-    time.sleep(SLEEP_BETWEEN_ACTIONS)
-    player1_name = get_player_names()
-    time.sleep(SLEEP_BETWEEN_ACTIONS)
-
-    player1_current_position = 0
-
-    while True:
-        time.sleep(SLEEP_BETWEEN_ACTIONS)
-        input_1 = input("\n" + player1_name + ": " + random.choice(player_turn_text) + " Hit>
-        print("\nRolling dice...")
-        dice_value = get_dice_value()
-        time.sleep(SLEEP_BETWEEN_ACTIONS)
-        print(player1_name + " moving....")
-        player1_current_position = snake_ladder(player1_name, player1_current_position, dice>
-
-        check_win(player1_name, player1_current_position)
-
 
 
 
