@@ -6,7 +6,11 @@ import random
 import sys
 import threading
 
+_ = system('clear')
+
 # Choosing Nickname
+print("-------------Welcome to the Snake and Ladder Game------------------")
+
 print ("Name will display on server")
 nickname = input("Choose your nickname: ")
 
@@ -14,7 +18,7 @@ nickname = input("Choose your nickname: ")
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect(('192.168.1.15', 8888))
 
-# just of effects. add a delay of 1 second before performing any action
+# effects! add a delay of 1 second before performing any action
 SLEEP_BETWEEN_ACTIONS = 1
 MAX_VAL = 50
 DICE_FACE = 6
@@ -55,18 +59,28 @@ ladder_jump = [
 def welcome_msg():
     msg = """
     Welcome to Snake and Ladder Game.
+ 
+    
+    41 42 43 44 45 46 47 48 49 50
+    ^     ^        *        *
+    40 39 38 37 36 35 34 33 32 31
+    |  *   \        \      /
+    21 22 23 24 25 26 27 28 29 30
+    |   \     \       \   /    ^
+    20 19 18 17 16 15 14 13 12 11
+         \      \            /
+    1  2  3  4  5  6  7  8  9  10
+
+    Snake    Ladder
+    49->13   20->41
+    46->14   9->30
+    39->3    5->43
+
 
   
     """
     print(msg)
 
-
-def get_player_names():
-    player1_name = None
-    while not player1_name:
-        player1_name = input("Please enter a valid name for first player: ").strip()
-
-    return player1_name
 
 
 def get_dice_value():
