@@ -84,7 +84,7 @@ def welcome_msg():
 
 
 def get_dice_value():
-    time.sleep(SLEEP_BETWEEN_ACTIONS)
+    time.sleep(WAIT)
     dice_value = random.randint(1, DICE_FACE)
     print("Its a " + str(dice_value))
     return dice_value
@@ -100,7 +100,7 @@ def got_ladder_jump(old_value, current_value, player_name):
 
 
 def snake_ladder(player_name, current_value, dice_value):
-    time.sleep(SLEEP_BETWEEN_ACTIONS)
+    time.sleep(WAIT)
     old_value = current_value
     current_value = current_value + dice_value
 
@@ -125,7 +125,7 @@ def snake_ladder(player_name, current_value, dice_value):
 
 
 def check_win(player_name, position):
-    time.sleep(SLEEP_BETWEEN_ACTIONS)
+    time.sleep(WAIT)
     if MAX_VAL == position:
         print("\n\n\nThats it.\n\n" + player_name + " won the game.")
         print("Congratulations " + player_name)
