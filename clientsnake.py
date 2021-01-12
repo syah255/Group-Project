@@ -146,9 +146,9 @@ def receive():
             else:
                  welcome_msg()
                  time.sleep(SLEEP_BETWEEN_ACTIONS)
-                 player1_name = get_player_names()
+                 player_name = nickname
                  time.sleep(SLEEP_BETWEEN_ACTIONS)
-                 player1_current_position = 0
+                 player_current_position = 0
 
                  while True:
                       time.sleep(WAIT)
@@ -156,10 +156,10 @@ def receive():
                       print("\nRolling dice...")
                       dice_value = get_dice_value()
                       time.sleep(WAIT)
-                      print(player1_name + " moving....")
-                      player1_current_position = snake_ladder(player1_name, player1_current_position, dice_value)
+                      print(player_name + " moving....")
+                      player_current_position = snake_ladder(player1_name, player1_current_position, dice_value)
                       _ = system('clear')
-                      check_win(player1_name, player1_current_position)
+                      check_win(player1_name, player_current_position)
 
 
         except:
