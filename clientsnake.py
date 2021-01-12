@@ -169,18 +169,5 @@ def receive():
             break
 
 
-# Sending Messages To Server
-def write():
-    while True:
-        message = '{}: {}'.format(nickname, input(''))
-        client.send(message.encode('ascii'))
-
-# Starting Threads For Listening And Writing
-receive_thread = threading.Thread(target=receive)
-receive_thread.start()
-
-write_thread = threading.Thread(target=write)
-write_thread.start()
-
-print("-------------Welcome to the Snake and Ladder Game------------------")
+receive()
 
