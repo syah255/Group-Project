@@ -3,7 +3,7 @@ import math
 import errno
 import time
 import random
-import sys
+from os import system
 import threading
 
 _ = system('clear')
