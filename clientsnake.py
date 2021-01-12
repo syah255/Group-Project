@@ -19,7 +19,7 @@ client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect(('192.168.1.15', 8888))
 
 # effects! add a delay of 1 second before performing any action
-SLEEP_BETWEEN_ACTIONS = 1
+WAIT = 1
 MAX_VAL = 50
 DICE_FACE = 6
 
@@ -151,14 +151,14 @@ def receive():
                  player1_current_position = 0
 
                  while True:
-                      time.sleep(SLEEP_BETWEEN_ACTIONS)
-                      input_1 = input("\n" + player1_name + ": " + random.choice(player_turn>
+                      time.sleep(WAIT)
+                      input_1 = input("\n" + player1_name + ": " + random.choice(player_turn_text) + " Hit the enter to roll dice: ")
                       print("\nRolling dice...")
                       dice_value = get_dice_value()
-                      time.sleep(SLEEP_BETWEEN_ACTIONS)
+                      time.sleep(WAIT)
                       print(player1_name + " moving....")
-                      player1_current_position = snake_ladder(player1_name, player1_current_>
-
+                      player1_current_position = snake_ladder(player1_name, player1_current_position, dice_value)
+                      _ = system('clear')
                       check_win(player1_name, player1_current_position)
 
 
