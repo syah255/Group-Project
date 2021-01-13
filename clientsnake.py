@@ -4,7 +4,7 @@ import errno
 import time
 import random
 from os import system
-import threading
+
 
 _ = system('clear')
 
@@ -134,8 +134,8 @@ def check_win(player_name, position):
 
 
 
-# Listening to Server and Sending Nickname
-def receive():
+# startgame()
+def startgame():
     while True:
         try:
             # Receive Message From Server
@@ -144,30 +144,38 @@ def receive():
             if message == 'NICK':
                 client.send(nickname.encode('ascii'))
             else:
-                 welcome_msg()
                  time.sleep(SLEEP_BETWEEN_ACTIONS)
                  player_name = nickname
                  time.sleep(SLEEP_BETWEEN_ACTIONS)
                  player_current_position = 0
-
+                 round=0
                  while True:
-                      time.sleep(WAIT)
+                      welcome_msg()
+                      time.sleep(WAIT)                  
+                      print("Round:")
+                      print(round)
+                      print("\nCurrent position :")
+                      print(player_current_position)
                       input_1 = input("\n" + player1_name + ": " + random.choice(player_turn_text) + " Hit the enter to roll dice: ")
                       print("\nRolling dice...")
                       dice_value = get_dice_value()
                       time.sleep(WAIT)
                       print(player_name + " moving....")
                       player_current_position = snake_ladder(player1_name, player1_current_position, dice_value)
-                      _ = system('clear')
+                      time.sleep(3)
+                      round=round+1
+#                     sent name and current position
+#                     client.send(player_name,player_current_position.encode('ascii'))
+              
                       check_win(player1_name, player_current_position)
+                       _ = system('clear')
 
 
-        except:
+        except socket.error as e:
             # Close Connection When Error
-            print("An error occured!")
-            client.close()
-            break
+            print(str(e))
+            sys.exit()
 
 
-receive()
+startgame()
 
