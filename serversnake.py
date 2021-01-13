@@ -28,8 +28,10 @@ def handle(client):
         try:
             # Broadcasting Messages
             message = client.recv(1024)
-            broadcast(message)
-            print(position)
+#           broadcast(message)
+#           a,b = [str(i) for i in server.recv(2048).decode('utf-8').split('\n')]
+#           print("Player name:"+ str(a) + "Position:" + str(b))
+
         except:
             # Removing And Closing Clients
             index = clients.index(client)
