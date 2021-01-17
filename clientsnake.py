@@ -92,11 +92,11 @@ def get_dice_value():
 
 def got_snake_bite(old_value, current_value, player_name):
     print("\n" + random.choice(snake_bite).upper() + " ~~~~~~~~>")
-    print("\n" + player_name + " got a snake bite. Down from " + str(old_value)+ " to " + st>
+    print("\n" + player_name + " got a snake bite. Down from " + str(old_value)+ " to " + str(current_value))
 
 def got_ladder_jump(old_value, current_value, player_name):
     print("\n" + random.choice(ladder_jump).upper() + " ########")
-    print("\n" + player_name + " climbed the ladder from " + str(old_value) + " to " + str(c>
+    print("\n" + player_name + " climbed the ladder from " + str(old_value) + " to " + str(current_value))
 
 
 def snake_ladder(player_name, current_value, dice_value):
