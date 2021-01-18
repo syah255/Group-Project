@@ -3,7 +3,7 @@ import threading #for performing various tasks at the same time
 
 # Connection Data
 host = '192.168.1.15'
-port =  8888
+port = 55555
 
 # Starting Server
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -16,22 +16,20 @@ clients = []
 nicknames = []
 
 
-# Sending Messages To All Connected Clients
+# Sending Messages to all connected client about current position each client
 def broadcast(message):
     for client in clients:
-        client.send(message)
+        print(message)
 
-
-# Handling Messages From Clients
 def handle(client):
     while True:
         try:
             # Broadcasting Messages
-            message = client.recv(1024)
+            position = client.recv(1024)
+#           print(position)
 #           broadcast(message)
 #           a,b = [str(i) for i in server.recv(2048).decode('utf-8').split('\n')]
 #           print("Player name:"+ str(a) + "Position:" + str(b))
-
         except:
             # Removing And Closing Clients
             index = clients.index(client)
@@ -41,6 +39,7 @@ def handle(client):
             broadcast('{} left!'.format(nickname).encode('ascii'))
             nicknames.remove(nickname)
             break
+
 
 
 # Receiving / Listening Function
@@ -73,3 +72,4 @@ def receive():
 print("Server is listening... for client to join snake ladder game")
 #It starts an endless while-loop which constantly accepts new connections from clients.
 receive()
+
